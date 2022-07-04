@@ -24,7 +24,7 @@ setup(
     packages= ["pynetsys"],
     license= "BSD 3 License",
     keywords=["python", "socket", "threading", "server", "client", "packet", "packets", "net", "network", "wireless", "dos", "tools", "tool", "traceroute", "arp", "tracert", "arping", "nslookup"],
-    install_reqs = dependencies
+    install_reqs = dependencies,
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",
