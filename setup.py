@@ -7,10 +7,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-install_reqs = parse_requirements('requirements.txt', session=False)
-dependencies = [str(ir) for ir in install_reqs]
-
-VERSION = "0.0.2"
+VERSION = "0.0.3"
 DESCRIPTION = "pynetsys is a collection of tools and malicious packets."
 
 setup(
@@ -24,7 +21,7 @@ setup(
     packages= ["pynetsys"],
     license= "BSD 3 License",
     keywords=["python", "socket", "threading", "server", "client", "packet", "packets", "net", "network", "wireless", "dos", "tools", "tool", "traceroute", "arp", "tracert", "arping", "nslookup"],
-    install_reqs = dependencies,
+    install_reqs = ["scapy", "pywifi", "dnspython"],
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",
