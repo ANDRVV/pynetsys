@@ -9,8 +9,7 @@ tool, packet = _tool, _packet
 
 def isOnline(Address: str):
     # IMPORT
-    from scapy.layers.inet import Ether, IP, TCP
-    from scapy.all import sr, conf
+    from scapy.layers.inet import IP
 
     # CREATING PACKET & RUN & RETURN
     try:
