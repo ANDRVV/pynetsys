@@ -1,6 +1,6 @@
 # PYNETSYS
 
-pynetsys is a collection of tools and malicious packets..
+pynetsys is a collection of tools and malicious packets.
 
 Developed by Andrea Vaccaro from ANDRVV (c) 2022
 
