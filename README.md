@@ -27,6 +27,28 @@ print(hostinfo)
 networks = pynetsys.tool.networkFinder() --> dict
 print(hostinfo)
 
+----------------
+
+isonline = pynetsys.isOnline("python.org") --> bool
+print(isonline)
+
+haswebprotocol = pynetsys.hasWebProtocol("http:\\python.org") --> bool
+OR
+haswebprotocol = pynetsys.hasWebProtocol("python.org") --> bool 
+print(haswebprotocol)
+
+hasSSLwebprotocol = pynetsys.hasSSLWebProtocol("https:\\python.org") --> bool
+OR
+hasSSLwebprotocol = pynetsys.hasSSLWebProtocol("python.org") --> bool 
+print(hasSSLwebprotocol)
+
+addwebprotocol = pynetsys.addWebProtocol("python.org") --> bool 
+print(addwebprotocol)
+
+removewebprotocol = pynetsys.removeWebProtocol("https:\\python.org") --> bool 
+OR
+removewebprotocol = pynetsys.removeWebProtocol("http:\\python.org") --> bool 
+print(removewebprotocol)
 ```
 
 # Create malicious packet and send
@@ -34,13 +56,13 @@ print(hostinfo)
 ```python
 import pynetsys
 
-PACKET, ID = pynetsys.packet.packet(target = "example.org", attack = pynetsys.packet.Packets.DEATH_PING)
+PACKET, ID = pynetsys.packet.packet(target = "example.org", attack = Packets.DEATH_PING)
 pynetsys.packet.start(PACKET, ID, _verbose = 0)
 
-PACKET, ID = packet(target = "example.org", attack = pynetsys.packet.Packets.SYN_FLOOD)
+PACKET, ID = pynetsys.packet.packet(target = "example.org", attack = Packets.SYN_FLOOD)
 pynetsys.packet.start(PACKET, ID, _verbose = 0)
 
-PACKET, ID = pynetsys.packet.packet(target = "aa:bb:cc:dd:ee:ff", attack = pynetsys.packet.Packets.WIRELESS_DEAUTH)
+PACKET, ID = pynetsys.packet.packet(target = "aa:bb:cc:dd:ee:ff", attack = Packets.WIRELESS_DEAUTH)
 pynetsys.packet.start(PACKET, ID, _verbose = 0)
 
 ```
