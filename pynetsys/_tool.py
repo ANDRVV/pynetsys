@@ -1,3 +1,4 @@
+from os import remove
 from .constants import Protocol
 from .error import PYNETSYS
 
@@ -61,13 +62,13 @@ def arp(IPv4Expanded: str = "192.168.1.0/24", interface: str = None):
 
     # CREATING PACKET & RUN
     PACKET = Ether(dst = "ff:ff:ff:ff:ff:ff")/ARP(pdst = IPv4Expanded)
-    __sr, _ = srp(PACKET, timeout = 2, iface = interface, inter = 0.1, verbose = 0)
+    __sr, _ = srp(PACKET, timeout = 2, iface = interface, verbose = 0)
     for _, received in __sr:
 	    SummaryLIST.append(received.summary())
 
     # FORMAT
     for Summary in SummaryLIST:
-        Conf = Summary.replace("Ether / ARP is at ", "").split(" says ")
+        Conf = Summary.replace("Ether / ARP is at ", "").replace(" / Padding", "").split(" says ")
         NewSummaryLIST.update({Conf[1]: Conf[0]})
 
     # RETURN
@@ -81,10 +82,13 @@ def hostlookup(Hostname: str, getSubdomainOnline : bool = True):
     INFO = {}
     sub = {}
     MultiIPv4 = []
-    Address = Hostname
+
+    from . import removeWebProtocol
+
+    Address = removeWebProtocol(Hostname)
 
     # IMPORT
-    from . import isOnline
+    from . import isOnline, addWebProtocol
     import dns.resolver as dns
     import socket
     from scapy.all import sr1
@@ -97,7 +101,8 @@ def hostlookup(Hostname: str, getSubdomainOnline : bool = True):
         pass 
     else:
         raise ERROR("Invalid domain, it may have a subdomain. Valid example: example.com")
-    if isOnline(Address):
+    addrverify = addWebProtocol(Address)
+    if isOnline(addrverify):
         pass
     else:
         raise ERROR("Address not exists or not online.")
