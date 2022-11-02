@@ -42,12 +42,12 @@ OR
 hasSSLwebprotocol = pynetsys.hasSSLWebProtocol("python.org") --> bool 
 print(hasSSLwebprotocol)
 
-addwebprotocol = pynetsys.addWebProtocol("python.org") --> bool 
+addwebprotocol = pynetsys.addWebProtocol("python.org") --> str
 print(addwebprotocol)
 
-removewebprotocol = pynetsys.removeWebProtocol("https:\\python.org") --> bool 
+removewebprotocol = pynetsys.removeWebProtocol("https:\\python.org") --> str 
 OR
-removewebprotocol = pynetsys.removeWebProtocol("http:\\python.org") --> bool 
+removewebprotocol = pynetsys.removeWebProtocol("http:\\python.org") --> str 
 print(removewebprotocol)
 ```
 
